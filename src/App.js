@@ -1,10 +1,19 @@
+import React from 'react'
+import  "./App.css"
+import ClassComponent from './ClassComponent'
+
 
 function App() {
   return (
-    <div className="App">
-      Hello World!
+    <div>
+      <ClassComponent/>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
+
+
+
+
+
