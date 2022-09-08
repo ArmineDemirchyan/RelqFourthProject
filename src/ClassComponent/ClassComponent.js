@@ -1,4 +1,6 @@
 import {Component} from "react";
+import ToDoVideoBg from "../assets/ToDoBg.mp4"
+
 
 class ClassComponent extends Component{
   constructor(props){
@@ -33,7 +35,11 @@ class ClassComponent extends Component{
   }
   render(){
     return(
-      <div className="App">
+      <div className="main">
+        <div className="overlay"></div>
+        <video src={ToDoVideoBg} autoPlay loop muted/>
+        <div className="content">
+        
         <h1 className="app-title">My List</h1>
         <div className="container">
         <div
@@ -65,7 +71,10 @@ class ClassComponent extends Component{
               )             
             })}
           </ul>
-          </div>
+          
+        </div>
+    </div>
+      
         </div>
       </div>
     )
