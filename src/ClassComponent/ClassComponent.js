@@ -1,6 +1,7 @@
 import {Component} from "react";
-import ToDoVideoBg from "../assets/ToDoBg.mp4"
-
+import ToDoVideoBg from "../assets/ToDoBg.mp4";
+import {FaBackspace} from 'react-icons/fa';
+import { Link } from "react-router-dom";
 
 class ClassComponent extends Component{
   constructor(props){
@@ -36,36 +37,29 @@ class ClassComponent extends Component{
   render(){
     return(
       <div className="main">
-        <div className="overlay"></div>
+        <div className="overlay"></div>       
         <video src={ToDoVideoBg} autoPlay loop muted/>
-        <div className="content">
         
-        <h1 className="app-title">My List</h1>
-        <div className="container">
-        <div
-         style={{
-            padding: 30,
-            textAlign: "left",
-            maxWidth: 500,
-            margin: "auto"
-          }}
-        >
-        Add an Item...
-          <br/>
+        <div className="list_div">
+        <Link to="/" className="go_main_page_arrow"><FaBackspace/></Link>
+        
+        <h1 className="app-title">To_Do_List with ClassComponent</h1>
           <input
+            className="toDo_input"
             type = "text"
             placeholder = "Type item here..."
             value = {this.state.newItem}
             onChange = {e => this.updateInput("newItem", e.target.value)}
           />
-          <button className="add-btn btn-floating"  onClick = {() => this.addItem()}> <i class="material-icons"> + </i></button>
+          <button className="add_button"  onClick = {() => this.addItem()}> <i class="material-icons"> + </i></button>
           <br /> <br />
           <ul>
             {this.state.list.map(item => {
               return(
+                
                 <li key={item.id}>
                   {item.value}
-                  <button className="btn btn-floating" onClick={() => this.deletItem(item.id)}><i class="material-icons">x</i></button>
+                  <button onClick={() => this.deletItem(item.id)}><i class="material-icons">x</i></button>
                 </li>
                
               )             
@@ -75,8 +69,8 @@ class ClassComponent extends Component{
         </div>
     </div>
       
-        </div>
-      </div>
+        
+      
     )
   }
  

@@ -9,9 +9,11 @@ export default function Main() {
         <div className="overlay"></div>
         <video src={VideoBg} autoPlay loop muted/>
         <div className="content">
-            <h1>Welcome to my site</h1>
-            <Link to="/hook">ToDoList_Hooks</Link>
-            <Link to="/class">ToDoList_Component</Link>
+            <h1 className="app-main-title">Welcome to my site</h1>
+            <div >
+            <Link to="/hook"><button className="link_style">ToDoList_Hooks</button></Link>
+            <Link to="/class"><button className="link_style">ToDoList_Component</button></Link>
+            </div>
         </div>
     </div>
   )

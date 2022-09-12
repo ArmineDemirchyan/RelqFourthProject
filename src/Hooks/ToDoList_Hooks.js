@@ -1,6 +1,8 @@
-import React from 'react'
-import {useState} from 'react'
-import ToDoSmile from "../assets/ToDoSmile.mp4"
+import React, {useState} from 'react'
+import ToDoSmile from "../assets/ToDoSmile.mp4";
+import {FaBackspace} from 'react-icons/fa';
+import { Link } from "react-router-dom";
+
 function ToDoList_Hooks() {
     const [newItem, setNewItem] = useState("")
     const [list, setList] =useState([])
@@ -26,9 +28,11 @@ function ToDoList_Hooks() {
   return (
     <div>
         <div className="main">
+        <div className="overlay"></div>   
         <video src={ToDoSmile} autoPlay loop muted/>
         <div className="list_div">
-        <h1>To_Do_List with Hooks</h1>
+        <Link to="/" className="go_main_page_arrow"><FaBackspace/></Link>
+        <h1 className="app-title">To_Do_List with Hooks</h1>
         
         <input
             className="toDo_input"
@@ -41,12 +45,10 @@ function ToDoList_Hooks() {
         
         <ul>
              {list.map(item =>{
-               return (
-                <div>
+               return (               
                 <li key={item.id}>{item.value} 
-                <button className="" onClick={() => deleteItem(item.id)}>x</button>
-                </li>
-                </div>
+                <button onClick={() => deleteItem(item.id)}><i class="material-icons">x</i></button>
+                </li>              
                )
             })} 
         </ul> 
